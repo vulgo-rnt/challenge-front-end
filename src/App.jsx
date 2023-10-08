@@ -4,14 +4,6 @@ import Banner from './components/Banner'
 import MainList from './components/MainList'
 
 function App() {
-  const info = {
-    title : 'title',
-    address:"jaguaribe",
-    postalCode:'2322-3322',
-    state:'sao paulo',
-    country:'osasco',
-    breweryType:'micro'
-  }
   return (
     <BrowserRouter>
       <GlobalStyled/> 

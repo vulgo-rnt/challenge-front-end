@@ -1,5 +1,11 @@
 import { useState } from "react"
 import Card from "../Card"
+import Filter from "../Filter"
+import styled from "styled-components"
+
+const ListStyled = styled.main`
+    display: flex;
+`
 
 export default function MainList(){
     const [type,setType] = useState('micro')
