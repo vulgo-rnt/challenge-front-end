@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
-  background: linear-gradient( 145deg ,#1b1213, #3d3838);
-`
+  background: linear-gradient(145deg, #1f191a, #46403f);
+`;
 
 const TextStelyd = styled.div`
   font-family: "Noto Naskh Arabic";
@@ -10,8 +10,8 @@ const TextStelyd = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 26px 9em 36px 9em ;
-`
+  padding: 26px 9em 36px 9em;
+`;
 
 export default function Banner() {
   return (

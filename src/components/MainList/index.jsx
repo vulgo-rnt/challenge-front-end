@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Card from "../Card"
 import Filter from "../Filter"
 import styled from "styled-components"
+import Pagination from "../Pagination"
 
 const ListStyled = styled.main`
     display: flex;
@@ -23,7 +24,9 @@ export default function MainList(){
  
     return(
         <>
-            <Filter setType={(param)=>setType(param)}/>
+            <Filter setType={(param)=>{
+                setPage('1')
+                setType(param)}}/>
             <ListStyled>
                 {cardData.length > 0 && 
                     cardData.map((card,index)=>{
@@ -40,14 +43,7 @@ export default function MainList(){
                     })
                 }
             </ListStyled>
-            <div>
-                <button onClick={(event)=> 
-                    setPage(event.target.innerText)}>1</button>
-                <button onClick={(event)=> 
-                    setPage(event.target.innerText)}>2</button>
-                <button onClick={(event)=> 
-                    setPage(event.target.innerText)}>3</button>
-            </div>
+          <Pagination type={type} setPag={setPage} select={page}/>
         </>
     )
 }

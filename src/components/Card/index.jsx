@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import FooterCard from "./FooterCard"
+import Typography from "../Typography"
 
 const CardStyled = styled.div`
     display: flex;
@@ -12,11 +13,11 @@ const CardStyled = styled.div`
 function Card({info}){
     return(
         <CardStyled>
-                    <h1>{info.title}</h1>
+                    <Typography size="l">{info.title}</Typography>
                     <div>
-                        <p>{info.address}</p>
-                        <p>{`${info.city} ${info.state} - ${info.postalCode}`}</p>
-                        <p>{info.country}</p>
+                        <Typography size="sm">{info.address}</Typography>
+                        <Typography size="sm">{`${info.city} ${info.state} - ${info.postalCode}`}</Typography>
+                        <Typography size="sm">{info.country}</Typography>
                     </div>
                 <FooterCard breweryType={info.breweryType}/>
         </CardStyled>
