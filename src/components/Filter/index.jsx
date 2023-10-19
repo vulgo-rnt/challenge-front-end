@@ -15,16 +15,9 @@ const SelectStyled = styled.select`
   -moz-appearance: none;
   background-color: transparent;
   color: black;
-
-  &:after {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    color: blue;
-  }
   padding: 4px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 `;
 
 function Filter({ setType }) {

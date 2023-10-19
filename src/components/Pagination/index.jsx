@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const ButtonStyled = styled.button`
+const SomeOtherComponent = (props) => <button {...props} />;
+
+const ButtonStyled = styled(SomeOtherComponent)`
   padding: 4px 8px;
-  background-color: ${(props) => (props.bgSelect ? "#363636" : "white")};
-  color: ${(props) => (props.bgSelect ? "white" : "#363636")};
+  background-color: ${(props) => (props.bgselect ? "#363636" : "white")};
+  color: ${(props) => (props.bgselect ? "white" : "#363636")};
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 `;
@@ -16,7 +18,7 @@ const FlexStyled = styled.span`
 
 function Pagination({ type, select, setPag }) {
   const [lengthData, setLengthData] = useState(0);
-  const [buttonSelect, setButtonSelect] = useState([true, false, false]);
+  const [buttonSelect, setButtonSelect] = useState([1, 0, 0]);
 
   useEffect(() => {
     fetch(`https://api.openbrewerydb.org/v1/breweries/meta?by_type=${type}`)
@@ -29,27 +31,27 @@ function Pagination({ type, select, setPag }) {
       return (
         <FlexStyled>
           <ButtonStyled
-            bgSelect={buttonSelect[0]}
+            bgselect={buttonSelect[0]}
             onClick={(event) => {
-              setButtonSelect([true, false, false]);
+              setButtonSelect([1, 0, 0]);
               setPag(event.target.innerText);
             }}
           >
             1
           </ButtonStyled>
           <ButtonStyled
-            bgSelect={buttonSelect[1]}
+            bgselect={buttonSelect[1]}
             onClick={(event) => {
-              setButtonSelect([false, true, false]);
+              setButtonSelect([0, 1, 0]);
               setPag(event.target.innerText);
             }}
           >
             2
           </ButtonStyled>
           <ButtonStyled
-            bgSelect={buttonSelect[2]}
+            bgselect={buttonSelect[2]}
             onClick={(event) => {
-              setButtonSelect([false, false, true]);
+              setButtonSelect([0, 0, 1]);
               setPag(event.target.innerText);
             }}
           >
