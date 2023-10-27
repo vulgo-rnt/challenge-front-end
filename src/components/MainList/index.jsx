@@ -9,7 +9,6 @@ const ListStyled = styled.ul`
   flex-wrap: wrap;
   width: 65vw;
   gap: 10px;
-  overflow-x: hidden;
   margin: auto;
   padding: 0;
 `;
