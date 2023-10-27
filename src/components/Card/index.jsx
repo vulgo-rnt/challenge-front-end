@@ -10,7 +10,7 @@ const CardStyled = styled.li`
   width: 23%;
   height: 225px;
   margin: auto;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 `;
 
 function Card({ info }) {

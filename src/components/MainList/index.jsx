@@ -23,7 +23,7 @@ const MainStyled = styled.div`
   label {
     position: absolute;
     top: -40px;
-    left: 20%;
+    left: 15%;
   }
 `;
 

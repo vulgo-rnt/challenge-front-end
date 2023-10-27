@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  padding: 4px 8px;
+  padding: 6px 10px;
   background-color: ${(props) => (props.$bgselect ? "#363636" : "white")};
   color: ${(props) => (props.$bgselect ? "white" : "#363636")};
   border-radius: 3px;
@@ -12,6 +12,7 @@ const ButtonStyled = styled.button`
 const FlexStyled = styled.span`
   display: flex;
   gap: 5px;
+  margin: 8px;
 `;
 
 function Pagination({ type, page, setPag }) {
