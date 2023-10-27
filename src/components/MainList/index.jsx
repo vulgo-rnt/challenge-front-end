@@ -4,11 +4,14 @@ import Filter from "../Filter";
 import styled from "styled-components";
 import Pagination from "../Pagination";
 
-const ListStyled = styled.main`
+const ListStyled = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  max-width: 90vw;
+  width: 65vw;
+  gap: 10px;
   overflow-x: hidden;
+  margin: auto;
+  padding: 0;
 `;
 
 const MainStyled = styled.div`
@@ -20,6 +23,7 @@ const MainStyled = styled.div`
   label {
     position: absolute;
     top: -40px;
+    left: 20%;
   }
 `;
 
