@@ -1,49 +1,65 @@
-import { useEffect, useState } from "react"
-import Card from "../Card"
-import Filter from "../Filter"
-import styled from "styled-components"
-import Pagination from "../Pagination"
+import { useEffect, useState } from "react";
+import Card from "../Card";
+import Filter from "../Filter";
+import styled from "styled-components";
+import Pagination from "../Pagination";
 
 const ListStyled = styled.main`
-    display: flex;
-    flex-wrap:wrap;
-    overflow-x: hidden;
-`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90vw;
+  overflow-x: hidden;
+`;
 
-export default function MainList(){
-    const [type,setType] = useState('micro')
-    const [cardData , setCardData] = useState([])
-    const [page, setPage] = useState('1')
+const MainStyled = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  label {
+    position: absolute;
+    top: -40px;
+  }
+`;
 
-    useEffect(()=>{
-        fetch(`https://api.openbrewerydb.org/v1/breweries?by_type=${type}&page=${page}&per_page=20`)
-        .then((data)=> data.json())
-        .then((data)=> setCardData(data))
-    },[type,page])
+export default function MainList() {
+  const [type, setType] = useState("");
+  const [cardData, setCardData] = useState([]);
+  const [page, setPage] = useState("1");
 
- 
-    return(
-        <>
-            <Filter setType={(param)=>{
-                setPage('1')
-                setType(param)}}/>
-            <ListStyled>
-                {cardData.length > 0 && 
-                    cardData.map((card,index)=>{
-                        const info = {
-                                title: card.name,
-                                address: card["address_1"] ,
-                                country: card.country,
-                                postalCode: card["postal_code"],
-                                state: card.state,
-                                breweryType: card["brewery_type"],
-                                city: card.city,
-                            }
-                    return <Card key={index} info={info} />
-                    })
-                }
-            </ListStyled>
-          <Pagination type={type} setPag={setPage} select={page}/>
-        </>
+  useEffect(() => {
+    fetch(
+      `https://api.openbrewerydb.org/v1/breweries?${type}&page=${page}&per_page=20`
     )
+      .then((data) => data.json())
+      .then((data) => setCardData(data));
+  }, [type, page]);
+
+  return (
+    <MainStyled>
+      <Filter
+        setType={(param) => {
+          setPage("1");
+          setType(`by_type=${param}`);
+        }}
+      />
+      <ListStyled>
+        {cardData.length > 0 &&
+          cardData.map((card, index) => {
+            const info = {
+              title: card.name,
+              address: card["address_1"],
+              country: card.country,
+              postalCode: card["postal_code"],
+              state: card.state,
+              breweryType: card["brewery_type"],
+              city: card.city,
+            };
+            return <Card key={index} info={info} />;
+          })}
+      </ListStyled>
+      <Pagination type={type} setPag={setPage} page={page} />
+    </MainStyled>
+  );
 }
