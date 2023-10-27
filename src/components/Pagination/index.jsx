@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ButtonStyled = styled.button`
   padding: 4px 8px;
-  background-color: ${(props) => (props.bgselect ? "#363636" : "white")};
-  color: ${(props) => (props.bgselect ? "white" : "#363636")};
+  background-color: ${(props) => (props.$bgselect ? "#363636" : "white")};
+  color: ${(props) => (props.$bgselect ? "white" : "#363636")};
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 `;
@@ -33,7 +33,7 @@ function Pagination({ type, page, setPag }) {
       return (
         <FlexStyled>
           <ButtonStyled
-            bgselect={buttonSelect[0]}
+            $bgselect={buttonSelect[0]}
             onClick={(event) => {
               setButtonSelect([1, 0, 0]);
               setPag(event.target.innerText);
@@ -42,7 +42,7 @@ function Pagination({ type, page, setPag }) {
             1
           </ButtonStyled>
           <ButtonStyled
-            bgselect={buttonSelect[1]}
+            $bgselect={buttonSelect[1]}
             onClick={(event) => {
               setButtonSelect([0, 1, 0]);
               setPag(event.target.innerText);
@@ -51,7 +51,7 @@ function Pagination({ type, page, setPag }) {
             2
           </ButtonStyled>
           <ButtonStyled
-            bgselect={buttonSelect[2]}
+            $bgselect={buttonSelect[2]}
             onClick={(event) => {
               setButtonSelect([0, 0, 1]);
               setPag(event.target.innerText);
