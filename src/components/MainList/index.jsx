@@ -51,6 +51,7 @@ export default function MainList() {
         {cardData.length > 0 &&
           cardData.map((card, index) => {
             const info = {
+              id: card.id,
               title: card.name,
               address: card["address_1"],
               country: card.country,

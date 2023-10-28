@@ -10,7 +10,8 @@ function App() {
       <GlobalStyled />
       <Banner />
       <Routes>
-        <Route path="/" element={<MainList />} />
+        <Route path="/" index element={<MainList />} />
+        <Route path=":id" element={<>teste</>} />
       </Routes>
       <Footer />
     </BrowserRouter>
