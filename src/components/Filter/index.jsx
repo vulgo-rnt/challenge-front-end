@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const LabelStyled = styled.label`
@@ -20,7 +21,7 @@ const SelectStyled = styled.select`
   border-radius: 3px;
 `;
 
-function Filter({ setType }) {
+function Filter() {
   const selectOptions = [
     "micro",
     "nano",
@@ -33,11 +34,16 @@ function Filter({ setType }) {
     "proprietor",
     "closed",
   ];
+
+  const navigate = useNavigate();
+
   return (
     <>
       <LabelStyled>
         Filter:
-        <SelectStyled onChange={(event) => setType(event.target.value)}>
+        <SelectStyled
+          onChange={(event) => navigate(`?type=${event.target.value}&page=1`)}
+        >
           {selectOptions.map((option) => (
             <option key={option}>{option}</option>
           ))}

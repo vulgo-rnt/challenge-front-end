@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import Card from "../Card";
-import Filter from "../Filter";
+import Card from "../../Card";
+import Filter from "../../Filter";
 import styled from "styled-components";
-import Pagination from "../Pagination";
+import Pagination from "../../Pagination";
+import { usePageContext } from "../../../context/PageContext";
 
 const ListStyled = styled.ul`
   display: flex;
@@ -26,30 +26,15 @@ const MainStyled = styled.div`
   }
 `;
 
-export default function MainList() {
-  const [type, setType] = useState("");
-  const [cardData, setCardData] = useState([]);
-  const [page, setPage] = useState("1");
-
-  useEffect(() => {
-    fetch(
-      `https://api.openbrewerydb.org/v1/breweries?${type}&page=${page}&per_page=20`
-    )
-      .then((data) => data.json())
-      .then((data) => setCardData(data));
-  }, [type, page]);
+export default function PageListSorting() {
+  const { cardsData } = usePageContext();
 
   return (
     <MainStyled>
-      <Filter
-        setType={(param) => {
-          setPage("1");
-          setType(`by_type=${param}`);
-        }}
-      />
+      <Filter />
       <ListStyled>
-        {cardData.length > 0 &&
-          cardData.map((card, index) => {
+        {!!cardsData &&
+          cardsData.map((card, index) => {
             const info = {
               id: card.id,
               title: card.name,
@@ -63,7 +48,7 @@ export default function MainList() {
             return <Card key={index} info={info} />;
           })}
       </ListStyled>
-      <Pagination type={type} setPag={setPage} page={page} />
+      <Pagination />
     </MainStyled>
   );
 }

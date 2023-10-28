@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import FooterCard from "./FooterCard";
 import Typography from "../Typography";
-import { useLocation } from "react-router-dom";
 
 const CardStyled = styled.li`
   display: flex;
@@ -16,7 +15,7 @@ const CardStyled = styled.li`
 
 function Card({ info }) {
   return (
-    <CardStyled onClick={() => (window.location = `/${info.id}`)}>
+    <CardStyled onClick={() => (window.location = `/?id=${info.id}`)}>
       <div>
         <Typography size="l">{info.title}</Typography>
         <br />
