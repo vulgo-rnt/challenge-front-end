@@ -35,16 +35,7 @@ export default function PageListSorting() {
       <ListStyled>
         {!!cardsData &&
           cardsData.map((card, index) => {
-            const info = {
-              id: card.id,
-              title: card.name,
-              address: card["address_1"],
-              country: card.country,
-              postalCode: card["postal_code"],
-              state: card.state,
-              breweryType: card["brewery_type"],
-              city: card.city,
-            };
+            const info = { ...card };
             return <Card key={index} info={info} />;
           })}
       </ListStyled>

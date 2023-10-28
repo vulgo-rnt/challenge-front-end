@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<PageListSorting />} />
-            <Route path="" element={<PageSingleCard />} />
+            <Route path="find/:id" element={<PageSingleCard />} />
           </Route>
         </Routes>
       </PageContextProvider>

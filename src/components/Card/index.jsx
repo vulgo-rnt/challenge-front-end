@@ -15,18 +15,18 @@ const CardStyled = styled.li`
 
 function Card({ info }) {
   return (
-    <CardStyled onClick={() => (window.location = `/?id=${info.id}`)}>
+    <CardStyled onClick={() => (window.location = `/find/${info.id}`)}>
       <div>
-        <Typography size="l">{info.title}</Typography>
+        <Typography size="l">{info.name}</Typography>
         <br />
         <div>
-          <Typography size="sm">{info.address}</Typography>
-          <Typography size="sm">{`${info.city} ${info.state} - ${info.postalCode}`}</Typography>
+          <Typography size="sm">{info.address_1}</Typography>
+          <Typography size="sm">{`${info.city} ${info.state} - ${info.postal_code}`}</Typography>
           <Typography size="sm">{info.country}</Typography>
         </div>
       </div>
 
-      <FooterCard breweryType={info.breweryType} />
+      <FooterCard breweryType={info.brewery_type} />
     </CardStyled>
   );
 }

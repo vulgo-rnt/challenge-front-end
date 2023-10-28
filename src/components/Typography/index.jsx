@@ -10,7 +10,7 @@ const ParagStyled = styled.p`
   color: #363636;
 `;
 
-function Typography({ size, strong, children }) {
+function Typography({ size, children }) {
   return <ParagStyled size={size}>{children}</ParagStyled>;
 }
 
