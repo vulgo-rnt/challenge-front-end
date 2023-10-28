@@ -10,7 +10,7 @@ const TextStelyd = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 26px 9em 36px 9em;
+  padding: 26px 20% 36px 20%;
 `;
 
 export default function Banner() {
