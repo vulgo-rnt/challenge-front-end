@@ -45,7 +45,7 @@ function PageSingleCard() {
           />
           <span>Back</span>
         </button>
-        <Typography strong size="xxl">
+        <Typography $strong size="xxl">
           {card.name}
         </Typography>
         <div>
