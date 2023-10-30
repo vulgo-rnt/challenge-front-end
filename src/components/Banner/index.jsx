@@ -15,7 +15,7 @@ const TextStelyd = styled.div`
 
 export default function Banner() {
   return (
-    <HeaderStyled>
+    <HeaderStyled onClick={() => (window.location = "/")}>
       <TextStelyd>
         <h1>Breweries</h1>
         <p>A breweries list by Open Brewery DB</p>
