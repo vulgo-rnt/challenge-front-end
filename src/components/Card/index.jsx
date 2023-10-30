@@ -17,7 +17,9 @@ function Card({ info }) {
   return (
     <CardStyled onClick={() => (window.location = `/find/${info.id}`)}>
       <div>
-        <Typography size="l">{info.name}</Typography>
+        <Typography size="l" strong>
+          {info.name}
+        </Typography>
         <br />
         <div>
           <Typography size="sm">{info.address_1}</Typography>

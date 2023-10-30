@@ -9,16 +9,16 @@ const DivStyled = styled.div`
   padding: 20px;
   box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
   button {
+    position: relative;
+    left: -11px;
     padding: 0;
     background-color: transparent;
     border: none;
     display: flex;
-    span {
-      margin: auto;
-    }
+    align-items: center;
   }
   div {
-    font-size: small;
+    margin: 10px 0;
   }
 `;
 
@@ -34,48 +34,51 @@ function PageSingleCard() {
   }, []);
 
   return (
-    <>
-      <DivStyled>
-        <button onClick={() => navigate(-1)}>
-          <img
-            width="24"
-            height="24"
-            src="https://img.icons8.com/material-rounded/24/back--v1.png"
-            alt="back--v1"
-          />
-          <span>Back</span>
-        </button>
-        <Typography $strong size="xxl">
+    <DivStyled>
+      <button onClick={() => navigate(-1)}>
+        <img
+          width="24"
+          height="24"
+          src="https://img.icons8.com/material-rounded/24/back--v1.png"
+          alt="back--v1"
+        />
+        <Typography>Back</Typography>
+      </button>
+      <div>
+        <br />
+        <Typography strong size="xxl">
           {card.name}
         </Typography>
-        <div>
-          <p>Type: {card.brewery_type}</p>
-          <p>Street: {card.street}</p>
-          <p>City: {card.city}</p>
-          <p>State: {card.state}</p>
-          <p>Postal Code: {card.postal_code}</p>
-          <p>Country: {card.country}</p>
-          <p>
-            Website:{" "}
-            {card.website_url ? (
-              <a target="_blank" href={card.website_url}>
-                {card.website_url}
-              </a>
-            ) : (
-              "Does not have a website"
-            )}
-          </p>
-          <p>Phone: {card.phone}</p>
-          <p>
-            Open in maps:{" "}
-            <a
-              target="_blank"
-              href={`https://www.google.com/maps?q=${card.latitude},${card.longitude}`}
-            >{`${card.latitude},${card.longitude}`}</a>
-          </p>
-        </div>
-      </DivStyled>
-    </>
+      </div>
+      <Typography>Type: {card.brewery_type}</Typography>
+      <Typography>Street: {card.street}</Typography>
+      <Typography>City: {card.city}</Typography>
+      <Typography>State: {card.state}</Typography>
+      <Typography>Postal Code: {card.postal_code}</Typography>
+      <Typography>Country: {card.country}</Typography>
+      <Typography>
+        Website:{" "}
+        {card.website_url ? (
+          <a target="_blank" href={card.website_url}>
+            {card.website_url}
+          </a>
+        ) : (
+          "Does not have a website"
+        )}
+      </Typography>
+      <Typography>Phone: {card.phone}</Typography>
+      <Typography>
+        Open in maps:{" "}
+        {card.latitude ? (
+          <a
+            target="_blank"
+            href={`https://www.google.com/maps?q=${card.latitude},${card.longitude}`}
+          >{`${card.latitude},${card.longitude}`}</a>
+        ) : (
+          "Not find"
+        )}
+      </Typography>
+    </DivStyled>
   );
 }
 export default PageSingleCard;

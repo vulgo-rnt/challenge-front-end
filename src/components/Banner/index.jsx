@@ -1,12 +1,11 @@
 import styled from "styled-components";
+import Typography from "../Typography";
 
 const HeaderStyled = styled.header`
   background: linear-gradient(145deg, #1f191a, #46403f);
 `;
 
 const TextStelyd = styled.div`
-  font-family: "Noto Naskh Arabic";
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +16,12 @@ export default function Banner() {
   return (
     <HeaderStyled onClick={() => (window.location = "/")}>
       <TextStelyd>
-        <h1>Breweries</h1>
-        <p>A breweries list by Open Brewery DB</p>
+        <Typography color="white" size="l">
+          Breweries
+        </Typography>
+        <Typography color="#ffffffca">
+          A breweries list by Open Brewery DB
+        </Typography>
       </TextStelyd>
     </HeaderStyled>
   );

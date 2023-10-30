@@ -10,9 +10,7 @@ const GlobalStyled = createGlobalStyle`
     p{
         margin: 0;
     }
-    *{
-        font-family: '';
-    }
+    *{  font-family: "Domine";}
 `;
 
 export default GlobalStyled;

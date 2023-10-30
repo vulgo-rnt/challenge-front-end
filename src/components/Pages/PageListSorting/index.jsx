@@ -14,6 +14,7 @@ const ListStyled = styled.ul`
 `;
 
 const MainStyled = styled.div`
+  color: #363636;
   position: relative;
   display: flex;
   flex-direction: column;

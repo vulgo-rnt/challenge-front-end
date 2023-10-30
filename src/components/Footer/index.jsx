@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Typography from "../Typography";
 
-const TitleStyled = styled.p`
+const TitleStyled = styled.div`
   display: flex;
   justify-content: center;
   margin: 30px;
@@ -9,7 +10,7 @@ const TitleStyled = styled.p`
 function Footer() {
   return (
     <TitleStyled>
-      <strong>Breweries List</strong>
+      <Typography strong>Breweries List</Typography>
     </TitleStyled>
   );
 }
