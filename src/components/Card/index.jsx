@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import FooterCard from "./FooterCard";
 import Typography from "../Typography";
+import { useNavigate } from "react-router-dom";
 
 const CardStyled = styled.li`
   display: flex;
@@ -20,8 +21,9 @@ const CardStyled = styled.li`
 `;
 
 function Card({ info }) {
+  const navigate = useNavigate();
   return (
-    <CardStyled onClick={() => (window.location = `/find/${info.id}`)}>
+    <CardStyled onClick={() => navigate(`/find/${info.id}`)}>
       <div>
         <Typography size="l" strong>
           {info.name}
