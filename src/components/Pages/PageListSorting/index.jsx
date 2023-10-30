@@ -10,11 +10,11 @@ const ListStyled = styled.ul`
   width: 65vw;
   gap: 10px;
   margin: auto;
+  margin-top: 20px;
   padding: 0;
 `;
 
 const MainStyled = styled.div`
-  color: #363636;
   position: relative;
   display: flex;
   flex-direction: column;

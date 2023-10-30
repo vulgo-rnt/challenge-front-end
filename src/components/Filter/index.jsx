@@ -1,9 +1,8 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Typography from "../Typography";
 
 const LabelStyled = styled.label`
-  font-size: large;
-  font-weight: bold;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -15,41 +14,49 @@ const SelectStyled = styled.select`
   -webkit-appearance: none;
   -moz-appearance: none;
   background-color: transparent;
+  background: url("https://img.icons8.com/color/10/expand-arrow.png") no-repeat
+    right center;
+  background-position: calc(100% - 7px) center;
   color: black;
-  padding: 4px;
+  font-size: 10px;
+  padding: 6px 20px 6px 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+  &:focus {
+    outline: none;
+    border-color: initial;
+  }
 `;
 
-function Filter() {
-  const selectOptions = [
-    "micro",
-    "nano",
-    "regional",
-    "brewpub",
-    "large",
-    "planning",
-    "bar",
-    "contract",
-    "proprietor",
-    "closed",
-  ];
+const selectOptions = [
+  "micro",
+  "nano",
+  "regional",
+  "brewpub",
+  "large",
+  "planning",
+  "bar",
+  "contract",
+  "proprietor",
+  "closed",
+];
 
+function Filter() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <LabelStyled>
+    <LabelStyled>
+      <Typography size="sm" strong>
         Filter:
-        <SelectStyled
-          onChange={(event) => navigate(`?type=${event.target.value}&page=1`)}
-        >
-          {selectOptions.map((option) => (
-            <option key={option}>{option}</option>
-          ))}
-        </SelectStyled>
-      </LabelStyled>
-    </>
+      </Typography>
+      <SelectStyled
+        onChange={(event) => navigate(`?type=${event.target.value}&page=1`)}
+      >
+        {selectOptions.map((option) => (
+          <option key={option}>{option}</option>
+        ))}
+      </SelectStyled>
+    </LabelStyled>
   );
 }
 

@@ -6,7 +6,7 @@ const DivStyled = styled.div`
   width: 100%;
   padding: 6px 12px;
   span {
-    font-size: smaller;
+    font-size: 8px;
     padding: 3px 6px;
     border-radius: 4px;
     background-color: ${(props) => props.$colorCard};
