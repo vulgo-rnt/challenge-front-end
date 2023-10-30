@@ -8,6 +8,13 @@ const DivStyled = styled.div`
   margin: 0 20%;
   padding: 20px;
   box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 710px) {
+    margin: 0 10%;
+  }
+  @media (max-width: 550px) {
+    margin: 0;
+  }
   button {
     position: relative;
     left: -11px;
