@@ -22,6 +22,7 @@ const SelectStyled = styled.select`
   padding: 6px 20px 6px 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+  box-shadow: none;
   &:focus {
     outline: none;
     border-color: initial;
