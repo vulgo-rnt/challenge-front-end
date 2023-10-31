@@ -17,15 +17,14 @@ const SelectStyled = styled.select`
   background: url("https://img.icons8.com/color/10/expand-arrow.png") no-repeat
     right center;
   background-position: calc(100% - 7px) center;
-  color: black;
   font-size: 10px;
   padding: 6px 20px 6px 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
-  box-shadow: none;
   &:focus {
     outline: none;
     border-color: initial;
+    box-shadow: none;
   }
 `;
 
