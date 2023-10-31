@@ -23,6 +23,7 @@ const DivStyled = styled.div`
     border: none;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   div {
     margin: 10px 0;

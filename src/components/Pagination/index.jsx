@@ -26,32 +26,31 @@ function Pagination() {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const type = queryParams.get("type") || "";
+    console.log(type);
     const page = queryParams.get("page") || "1";
 
-    if (!lengthData) {
-      fetch(
-        `https://api.openbrewerydb.org/v1/breweries/meta?${
-          type && `by_type=${type}`
-        }`
-      )
-        .then((data) => data.json())
-        .then((data) => setLengthData(data.total));
-    }
+    fetch(
+      `https://api.openbrewerydb.org/v1/breweries/meta?${
+        type === "" ? "" : `by_type=${type}`
+      }`
+    )
+      .then((data) => data.json())
+      .then((data) => setLengthData(data.total));
+
     if (page === "1") setButtonSelect([1, 0, 0]);
     else if (page === "2") setButtonSelect([0, 1, 0]);
     else setButtonSelect([0, 0, 1]);
   }, [location]);
 
   function elementCount() {
-    const queryParams = new URLSearchParams(location.search);
-    const type = queryParams.get("type") || "";
     if (lengthData > 40) {
+      const queryParams = new URLSearchParams(location.search);
+      const type = queryParams.get("type") || "";
       return (
         <FlexStyled>
           <ButtonStyled
             $bgselect={buttonSelect[0]}
             onClick={() => {
-              console.log(location);
               navigate(`?type=${type}&page=1`);
             }}
           >
