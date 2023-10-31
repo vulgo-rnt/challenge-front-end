@@ -12,6 +12,7 @@ const CardStyled = styled.li`
   height: 225px;
   margin: auto;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   @media (max-width: 1100px) {
     width: 34%;
   }
