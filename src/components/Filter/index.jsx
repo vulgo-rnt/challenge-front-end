@@ -24,7 +24,6 @@ const SelectStyled = styled.select`
   &:focus {
     outline: none;
     border-color: initial;
-    box-shadow: none;
   }
 `;
 
