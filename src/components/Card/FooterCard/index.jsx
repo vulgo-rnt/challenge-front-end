@@ -13,7 +13,6 @@ const DivStyled = styled.div`
     color: ${(props) => props.$fontColor};
   }
 `;
-
 const colorsCard = {
   micro: { bg: "#00d1b2", font: "white" },
   brewpub: { bg: "#ffdd57", font: "black" },
