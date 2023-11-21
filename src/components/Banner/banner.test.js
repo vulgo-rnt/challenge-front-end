@@ -1,7 +1,7 @@
-import Card from ".";
 import { fireEvent, render, screen } from "../../../test-utils";
 import React from "react";
 import infoMock from "../__mocks__/api/response";
+import Banner from ".";
 
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -27,15 +27,14 @@ describe("Card", () => {
   });
 
   it("renders component", async () => {
-    render(<Card info={infoMock[0]} />);
-    const linkElement = await screen.findByTestId("card");
+    render(<Banner />);
+    const linkElement = await screen.findByTestId("banner");
     expect(linkElement).toBeInTheDocument();
   });
   it("navigate after click", async () => {
-    render(<Card info={infoMock[0]} />);
-    const linkElement = await screen.findByTestId("card");
+    render(<Banner />);
+    const linkElement = await screen.findByTestId("banner");
     fireEvent.click(linkElement);
-
-    expect(mockNavigate).toHaveBeenCalledWith(`/find/${infoMock[0].id}`);
+    expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 });

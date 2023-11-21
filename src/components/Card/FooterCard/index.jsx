@@ -13,7 +13,7 @@ const DivStyled = styled.div`
     color: ${(props) => props.$fontColor};
   }
 `;
-const colorsCard = {
+export const colorsCard = {
   micro: { bg: "#00d1b2", font: "white" },
   brewpub: { bg: "#ffdd57", font: "black" },
   regional: { bg: "#3273dc", font: "white" },
@@ -29,10 +29,11 @@ const colorsCard = {
 function FooterCard({ breweryType }) {
   return (
     <DivStyled
+      data-testid="footerCard"
       $colorCard={colorsCard[breweryType].bg}
       $fontColor={colorsCard[breweryType].font}
     >
-      <span>{breweryType}</span>
+      <span data-testid="footerCard/element">{breweryType}</span>
     </DivStyled>
   );
 }

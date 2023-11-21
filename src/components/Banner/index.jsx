@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Typography from "../Typography";
+import { useNavigate } from "react-router-dom";
 
 const HeaderStyled = styled.header`
   background: linear-gradient(145deg, #1f191a, #46403f);
@@ -13,8 +14,9 @@ const TextStelyd = styled.div`
 `;
 
 export default function Banner() {
+  const navigate = useNavigate();
   return (
-    <HeaderStyled onClick={() => (window.location = "/")}>
+    <HeaderStyled data-testid="banner" onClick={() => navigate("/")}>
       <TextStelyd>
         <Typography color="white" size="l">
           Breweries
