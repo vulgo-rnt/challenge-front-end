@@ -9,7 +9,7 @@ const TitleStyled = styled.div`
 
 function Footer() {
   return (
-    <TitleStyled>
+    <TitleStyled data-testid="footer">
       <Typography strong>Breweries List</Typography>
     </TitleStyled>
   );

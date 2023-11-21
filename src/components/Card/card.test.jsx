@@ -10,19 +10,7 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Card", () => {
-  let originalFetch;
-
-  beforeEach(() => {
-    originalFetch = global.fetch;
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve([infoMock]),
-      })
-    );
-  });
-
   afterEach(() => {
-    global.fetch = originalFetch;
     jest.restoreAllMocks();
   });
 
