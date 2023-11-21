@@ -26,7 +26,6 @@ function Pagination() {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const type = queryParams.get("type") || "";
-    console.log(type);
     const page = queryParams.get("page") || "1";
 
     fetch(
@@ -47,7 +46,7 @@ function Pagination() {
       const queryParams = new URLSearchParams(location.search);
       const type = queryParams.get("type") || "";
       return (
-        <FlexStyled>
+        <FlexStyled data-testid="pagination">
           <ButtonStyled
             $bgselect={buttonSelect[0]}
             onClick={() => {
