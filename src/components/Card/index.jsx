@@ -24,7 +24,7 @@ const CardStyled = styled.li`
 function Card({ info }) {
   const navigate = useNavigate();
   return (
-    <CardStyled onClick={() => navigate(`/find/${info.id}`)}>
+    <CardStyled data-testid="card" onClick={() => navigate(`/find/${info.id}`)}>
       <div>
         <Typography size="l" strong>
           {info.name}

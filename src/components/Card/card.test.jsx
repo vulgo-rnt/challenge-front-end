@@ -1,17 +1,13 @@
 import Card from ".";
-import { render, screen } from "../../../test-utils";
+import { fireEvent, render, screen } from "../../../test-utils";
 import React from "react";
+import infoMock from "../__mocks__/api/response";
 
-const infoMock = {
-  id: "Test",
-  name: "Test",
-  address_1: "Test",
-  city: "Test",
-  state: "Test",
-  postal_code: "Test",
-  country: "Test",
-  brewery_type: "micro",
-};
+const mockNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("Card", () => {
   let originalFetch;
@@ -27,11 +23,19 @@ describe("Card", () => {
 
   afterEach(() => {
     global.fetch = originalFetch;
+    jest.restoreAllMocks();
   });
 
-  it("renders Card component", async () => {
-    render(<Card info={infoMock} />);
+  it("renders component", async () => {
+    render(<Card info={infoMock[0]} />);
     const linkElement = await screen.findByRole("listitem");
     expect(linkElement).toHaveStyle("display:flex");
+  });
+  it("navigate on click", async () => {
+    render(<Card info={infoMock[0]} />);
+    const linkElement = await screen.findByTestId("card");
+    fireEvent.click(linkElement);
+
+    expect(mockNavigate).toHaveBeenCalledWith(`/find/${infoMock[0].id}`);
   });
 });
