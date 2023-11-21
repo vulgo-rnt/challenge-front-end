@@ -13,14 +13,14 @@ describe("Banner", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders component", async () => {
+  it("renders component", () => {
     render(<Banner />);
-    const bannerElement = await screen.findByTestId("banner");
+    const bannerElement = screen.getByTestId("banner");
     expect(bannerElement).toBeInTheDocument();
   });
-  it("navigate after click", async () => {
+  it("navigate after click", () => {
     render(<Banner />);
-    const bannerElement = await screen.findByTestId("banner");
+    const bannerElement = screen.getByTestId("banner");
     fireEvent.click(bannerElement);
     expect(mockNavigate).toHaveBeenCalledWith("/");
   });

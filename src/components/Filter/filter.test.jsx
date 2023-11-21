@@ -13,18 +13,18 @@ describe("Filter", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders component", async () => {
+  it("renders component", () => {
     render(<Filter />);
-    const filterElement = await screen.findByTestId("filter");
+    const filterElement = screen.getByTestId("filter");
     expect(filterElement).toBeInTheDocument();
   });
-  it("navigate after select", async () => {
+  it("navigate after select", () => {
     render(<Filter />);
-    const filterElement = await screen.findByTestId("filter/select");
+    const filterElement = screen.getByTestId("filter/select");
 
     fireEvent.change(filterElement, { target: { value: "micro" } });
 
-    const optionElement = await screen.findByTestId("option/micro");
+    const optionElement = screen.getByTestId("option/micro");
 
     expect(mockNavigate).toHaveBeenCalledWith(
       `?type=${optionElement.value}&page=1`

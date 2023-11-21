@@ -31,7 +31,7 @@ describe("Pagination", () => {
     await act(async () => {
       render(<Pagination />);
     });
-    const paginationElement = await screen.findByTestId("pagination");
+    const paginationElement = screen.getByTestId("pagination");
     expect(paginationElement).toBeInTheDocument();
   });
 
@@ -48,7 +48,7 @@ describe("Pagination", () => {
       render(<Pagination />);
     });
 
-    const paginationElement = await screen.findByTestId("pagination");
+    const paginationElement = screen.getByTestId("pagination");
 
     await act(async () => {
       fireEvent.click(paginationElement.firstChild);

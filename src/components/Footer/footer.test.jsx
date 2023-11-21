@@ -3,9 +3,9 @@ import React from "react";
 import Footer from ".";
 
 describe("Footer", () => {
-  it("renders component", async () => {
+  it("renders component", () => {
     render(<Footer />);
-    const footerElement = await screen.findByTestId("footer");
+    const footerElement = screen.getByTestId("footer");
     expect(footerElement).toBeInTheDocument();
   });
 });

@@ -14,14 +14,14 @@ describe("Card", () => {
     jest.restoreAllMocks();
   });
 
-  it("renders component", async () => {
+  it("renders component", () => {
     render(<Card info={infoMock[0]} />);
-    const cardElement = await screen.findByTestId("card");
+    const cardElement = screen.getByTestId("card");
     expect(cardElement).toBeInTheDocument();
   });
-  it("navigate after click", async () => {
+  it("navigate after click", () => {
     render(<Card info={infoMock[0]} />);
-    const cardElement = await screen.findByTestId("card");
+    const cardElement = screen.getByTestId("card");
     fireEvent.click(cardElement);
 
     expect(mockNavigate).toHaveBeenCalledWith(`/find/${infoMock[0].id}`);

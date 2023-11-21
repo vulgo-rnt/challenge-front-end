@@ -14,7 +14,12 @@ const ParagStyled = styled.p`
 
 function Typography({ size, strong = false, children, color = "#363636" }) {
   return (
-    <ParagStyled $strong={strong} size={size} color={color}>
+    <ParagStyled
+      data-testid="typography"
+      $strong={strong}
+      size={size}
+      color={color}
+    >
       {children}
     </ParagStyled>
   );
