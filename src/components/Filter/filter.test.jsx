@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "../../../test-utils";
 import React from "react";
 import infoMock from "../__mocks__/api/response";
-import Banner from ".";
+import Filter from ".";
 
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -27,14 +27,20 @@ describe("Card", () => {
   });
 
   it("renders component", async () => {
-    render(<Banner />);
-    const linkElement = await screen.findByTestId("banner");
-    expect(linkElement).toBeInTheDocument();
+    render(<Filter />);
+    const filterElement = await screen.findByTestId("filter");
+    expect(filterElement).toBeInTheDocument();
   });
-  it("navigate after click", async () => {
-    render(<Banner />);
-    const linkElement = await screen.findByTestId("banner");
-    fireEvent.click(linkElement);
-    expect(mockNavigate).toHaveBeenCalledWith("/");
+  it("navigate after select", async () => {
+    render(<Filter />);
+    const filterElement = await screen.findByTestId("filter/select");
+
+    fireEvent.change(filterElement, { target: { value: "micro" } });
+
+    const optionElement = await screen.findByTestId("option/micro");
+
+    expect(mockNavigate).toHaveBeenCalledWith(
+      `?type=${optionElement.value}&page=1`
+    );
   });
 });

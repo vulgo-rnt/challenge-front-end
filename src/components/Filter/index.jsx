@@ -44,15 +44,18 @@ function Filter() {
   const navigate = useNavigate();
 
   return (
-    <LabelStyled>
+    <LabelStyled data-testid="filter">
       <Typography size="sm" strong>
         Filter:
       </Typography>
       <SelectStyled
+        data-testid="filter/select"
         onChange={(event) => navigate(`?type=${event.target.value}&page=1`)}
       >
         {selectOptions.map((option) => (
-          <option key={option}>{option}</option>
+          <option data-testid={`option/${option}`} key={option}>
+            {option}
+          </option>
         ))}
       </SelectStyled>
     </LabelStyled>

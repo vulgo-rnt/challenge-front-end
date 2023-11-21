@@ -21,13 +21,13 @@ describe("Card", () => {
 
   it("renders component", async () => {
     render(<FooterCard breweryType={infoMock[0].brewery_type} />);
-    const linkElement = await screen.findByTestId("footerCard");
-    expect(linkElement).toBeInTheDocument();
+    const footerElement = await screen.findByTestId("footerCard");
+    expect(footerElement).toBeInTheDocument();
   });
   it("render color", async () => {
     render(<FooterCard breweryType={infoMock[0].brewery_type} />);
-    const linkElement = await screen.findByTestId("footerCard/element");
-    expect(linkElement).toHaveStyle(
+    const footerElement = await screen.findByTestId("footerCard/element");
+    expect(footerElement).toHaveStyle(
       `background-color:${colorsCard[infoMock[0].brewery_type].bg}`
     );
   });
