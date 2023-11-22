@@ -50,9 +50,7 @@ describe("Pagination", () => {
 
     const paginationElement = screen.getByTestId("pagination");
 
-    await act(async () => {
-      fireEvent.click(paginationElement.firstChild);
-    });
+    fireEvent.click(paginationElement.firstChild);
 
     expect(mockNavigate).toHaveBeenCalledWith("?type=&page=1");
   });

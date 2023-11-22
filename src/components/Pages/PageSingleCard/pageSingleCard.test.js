@@ -1,6 +1,6 @@
 import React from "react";
 import mockResponse from "../../__mocks__/api/response";
-import { renderWithProvider, screen } from "../../../../test-utils";
+import { fireEvent, renderWithProvider, screen } from "../../../../test-utils";
 import PageSingleCard from ".";
 import { act } from "react-test-renderer";
 
@@ -46,5 +46,14 @@ describe("Page Single Card", () => {
 
     expect(websiteTextElement).toBeInTheDocument();
     expect(locationTextElement).toBeInTheDocument();
+  });
+  it("navigate after click", async () => {
+    await act(async () => {
+      renderWithProvider(<PageSingleCard />);
+    });
+    const buttonElement = screen.getByRole("button");
+    fireEvent.click(buttonElement);
+
+    expect(mockNavigate).toHaveBeenCalledWith(-1);
   });
 });
