@@ -42,7 +42,7 @@ function PageSingleCard() {
   }, []);
 
   return (
-    <DivStyled>
+    <DivStyled data-testid="pageCard">
       <button onClick={() => navigate(-1)}>
         <img
           width="24"
@@ -77,7 +77,7 @@ function PageSingleCard() {
       <Typography>Phone: {card.phone}</Typography>
       <Typography>
         Open in maps:{" "}
-        {card.latitude ? (
+        {card.latitude && card.longitude ? (
           <a
             target="_blank"
             href={`https://www.google.com/maps?q=${card.latitude},${card.longitude}`}

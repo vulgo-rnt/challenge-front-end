@@ -36,8 +36,7 @@ export default function PageListSorting() {
       <ListStyled>
         {!!cardsData &&
           cardsData.map((card, index) => {
-            const info = { ...card };
-            return <Card key={index} info={info} />;
+            return <Card key={index} info={{ ...card }} />;
           })}
       </ListStyled>
       <Pagination />
