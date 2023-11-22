@@ -5,7 +5,7 @@ describe("UrlType funtion", () => {
     const paramNull = urlType("");
     expect(paramNull).toEqual("");
 
-    const paramType = urlType("micro");
+    const paramType = urlType("micr");
     expect(paramType).toEqual("by_type=micro");
   });
 });
