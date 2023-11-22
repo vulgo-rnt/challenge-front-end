@@ -31,7 +31,7 @@ export default function PageListSorting() {
   const { cardsData } = usePageContext();
 
   return (
-    <MainStyled>
+    <MainStyled data-testid="page">
       <Filter />
       <ListStyled>
         {!!cardsData &&
