@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import urlType from "../../common/urlType";
 
 const ButtonStyled = styled.button`
   padding: 6px 10px;
@@ -16,6 +17,12 @@ const FlexStyled = styled.span`
   margin: 8px;
 `;
 
+export const buttonsSelectCondition = (page) => {
+  if (page === "1") return [1, 0, 0];
+  else if (page === "2") return [0, 1, 0];
+  else return [0, 0, 1];
+};
+
 function Pagination() {
   const [lengthData, setLengthData] = useState(0);
   const [buttonSelect, setButtonSelect] = useState([]);
@@ -28,17 +35,11 @@ function Pagination() {
     const type = queryParams.get("type") || "";
     const page = queryParams.get("page") || "1";
 
-    fetch(
-      `https://api.openbrewerydb.org/v1/breweries/meta?${
-        type === "" ? "" : `by_type=${type}`
-      }`
-    )
+    fetch(`https://api.openbrewerydb.org/v1/breweries/meta?${urlType(type)}`)
       .then((data) => data.json())
       .then((data) => setLengthData(data.total));
 
-    if (page === "1") setButtonSelect([1, 0, 0]);
-    else if (page === "2") setButtonSelect([0, 1, 0]);
-    else setButtonSelect([0, 0, 1]);
+    setButtonSelect(buttonsSelectCondition(page));
   }, [location]);
 
   function elementCount() {

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import urlType from "../../common/urlType";
 
 export const PageContext = createContext();
 
@@ -14,9 +15,9 @@ export function PageContextProvider({ children }) {
     const page = queryParams.get("page") || "1";
 
     fetch(
-      `https://api.openbrewerydb.org/v1/breweries?${
-        type && `by_type=${type}`
-      }&page=${page}&per_page=20`
+      `https://api.openbrewerydb.org/v1/breweries?${urlType(
+        type
+      )}&page=${page}&per_page=20`
     )
       .then((data) => data.json())
       .then((data) => setCardsData(data));

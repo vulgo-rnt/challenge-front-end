@@ -1,20 +1,26 @@
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { PageContextProvider } from "./src/context/PageContext";
 import { render } from "@testing-library/react";
 
-const Routers = ({ children }) => <BrowserRouter>{children}</BrowserRouter>;
+let route = "/";
 
-const Provider = ({ children }) => (
-  <BrowserRouter>
-    <PageContextProvider>{children}</PageContextProvider>
-  </BrowserRouter>
+const Routers = ({ children }) => (
+  <MemoryRouter initialEntries={[route]}>{children}</MemoryRouter>
 );
 
-export const renderWithRouters = (ui, options) =>
+const Provider = ({ children }) => (
+  <MemoryRouter>
+    <PageContextProvider>{children}</PageContextProvider>
+  </MemoryRouter>
+);
+
+export const renderWithRouters = (ui, options) => {
+  if (options) route = options.inicialEntries;
   render(ui, {
     wrapper: Routers,
     ...options,
   });
+};
 
 export const renderWithProvider = (ui, options) =>
   render(ui, {
