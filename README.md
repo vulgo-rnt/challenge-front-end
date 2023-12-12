@@ -1,8 +1,18 @@
-# React + Vite
+# Drink Websites Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end challenge from Linx company
 
-Currently, two official plugins are available:
+[Click Here Run App](challenge-linx-vulgo-rnt.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Libs used
++ React
++ React Router Dom
++ Styled-Components
++ Jest
++ Babel
+
+## Install
+
+1. Clone the application.
+2. Open the terminal and type `npm install` to install the dependencies.
+3. Then upload the app with `npm run dev`.
