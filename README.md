@@ -2,7 +2,7 @@
 
 Front-end challenge from Linx company
 
-[Click Here Run App](challenge-linx-vulgo-rnt.vercel.app)
+[Click Here Run App](https://challenge-linx-vulgo-rnt.vercel.app)
 
 ## Libs used
 + React
