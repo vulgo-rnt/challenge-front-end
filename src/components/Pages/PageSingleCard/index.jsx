@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { usePageContext } from "../../../context/PageContext";
 import Typography from "../../Typography";
+import MapFrame from "../../MapFrame";
 
 const DivStyled = styled.div`
   margin: 0 20%;
@@ -27,6 +28,10 @@ const DivStyled = styled.div`
   }
   div {
     margin: 10px 0;
+  }
+  #map {
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -67,7 +72,7 @@ function PageSingleCard() {
       <Typography>
         Website:{" "}
         {card.website_url ? (
-          <a target="_blank" href={card.website_url}>
+          <a target="_blank" rel="noreferrer" href={card.website_url}>
             {card.website_url}
           </a>
         ) : (
@@ -80,12 +85,18 @@ function PageSingleCard() {
         {card.latitude && card.longitude ? (
           <a
             target="_blank"
+            rel="noreferrer"
             href={`https://www.google.com/maps?q=${card.latitude},${card.longitude}`}
           >{`${card.latitude},${card.longitude}`}</a>
         ) : (
           "Not find"
         )}
       </Typography>
+      {card.latitude && card.longitude && (
+        <div id="map">
+          <MapFrame location={[card.latitude, card.longitude]} size="sm" />
+        </div>
+      )}
     </DivStyled>
   );
 }
